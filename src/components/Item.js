@@ -10,14 +10,14 @@ const Item = ({ id, item, update }) => {
     const [isVisible, setVisibility] = React.useState(false);
 
     const dispatch = useDispatch()
-    const onTextEdit = () => {  console.log('id', item.id, 'editText', editText);  update({id: item.id, title: editText})
-    setVisibility(false);}
+    const onTextEdit = () => {  console.log('id', item.id, 'editText', editText);
+        update({id: item.id, title: editText})
+        setVisibility(false);}
     const onTextDelete = () => dispatch(del(item.id))
 
     const flipVisible = () => {
         setVisibility(!isVisible)
     }
-
 
     return(
         <View style={styles.item}>

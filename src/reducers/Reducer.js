@@ -27,7 +27,6 @@ export default (state=initState , action) => {
                     todolist: a
                 };
             case "EDIT":
-                //const a = state.todolist.filter((item)=> { return item.id!==action.payload });
 
                 const b = state.todolist.map(item => {
                     if (item.id === action.payload.id)

@@ -3,13 +3,16 @@ import {Text, View, TouchableOpacity, TextInput, StyleSheet, Button, FlatList} f
 import { useSelector, useDispatch } from "react-redux";
 import {add, edit} from '../reducers/actions';
 import RenderItem from './RenderItem'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 //import { v4 as uuidv4 } from 'uuid'; //???
 //import Icon from 'react-native-vector-icons/dist/FontAwesome'; //???
 //uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 //import Reducer from './Reducer'
 //{title: ‘’, checkbox: false}
 
-const BaseView = () => {
+const BaseView = ({ navigation }) => {
 
     const [text, setText] = React.useState("");
 
@@ -22,6 +25,10 @@ const BaseView = () => {
     const onTextAdd = () => dispatch(add(text))
 
     return (<View>
+                <Button
+                    title="Go to Saga View"
+                    onPress={() => navigation.navigate('SagaView')}
+                />
                 <TextInput style={styles.input}
                            onChangeText={setText}
                            value={text}>
